@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C62373C227929D400F52345 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62373B227929D400F52345 /* AppDelegate.swift */; };
-		0C62373E227929D400F52345 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62373D227929D400F52345 /* ViewController.swift */; };
 		0C623741227929D400F52345 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C62373F227929D400F52345 /* Main.storyboard */; };
 		0C623743227929D500F52345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C623742227929D500F52345 /* Assets.xcassets */; };
 		0C623746227929D500F52345 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C623744227929D500F52345 /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		0C623738227929D400F52345 /* MessageKitWithFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageKitWithFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C62373B227929D400F52345 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0C62373D227929D400F52345 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0C623740227929D400F52345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C623742227929D500F52345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C623745227929D500F52345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 		0C62374F22792E4900F52345 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0C62373D227929D400F52345 /* ViewController.swift */,
 				0C62375022792EBB00F52345 /* LoginViewController.swift */,
 				0C6237522279347900F52345 /* ChatViewController.swift */,
 			);
@@ -260,7 +257,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C62375122792EBB00F52345 /* LoginViewController.swift in Sources */,
-				0C62373E227929D400F52345 /* ViewController.swift in Sources */,
 				0C6237532279347900F52345 /* ChatViewController.swift in Sources */,
 				0C62373C227929D400F52345 /* AppDelegate.swift in Sources */,
 			);
