@@ -20,6 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        
+        let user = Auth.auth().currentUser
+        
+        if user != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ChatVC") as! ChatViewController
+            self.window?.rootViewController = vc
+        }
+        
         return true
     }
     

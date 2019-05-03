@@ -21,7 +21,7 @@ class ChatViewController: MessagesViewController {
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "hh:mm"
         return formatter
     }()
     
@@ -38,6 +38,9 @@ class ChatViewController: MessagesViewController {
         
         messageInputBar.delegate = self
         
+        scrollsToBottomOnKeyboardBeginsEditing = true
+//        maintainPositionOnKeyboardFrameChanged = true
+        
         let chatService = ChatService()
         chatService.getMessages { (messageList) in
             self.messageList = []
@@ -50,6 +53,10 @@ class ChatViewController: MessagesViewController {
             self.messageList = messageList
             self.messagesCollectionView.reloadData()
         })
+        
+        messagesCollectionView.backgroundColor = UIColor(red: 114/255, green: 148/255, blue: 194/255, alpha: 1)
+        
+        messagesCollectionView.handleTapGesture(<#T##gesture: UIGestureRecognizer##UIGestureRecognizer#>)
     }
     
 }
@@ -85,7 +92,11 @@ extension ChatViewController: MessagesDataSource {
     
     func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let name = message.sender.displayName
-        return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
+        let user = Auth.auth().currentUser
+        if message.sender.id != user?.uid {
+            return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
+        }
+        return nil
     }
     
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
@@ -96,6 +107,12 @@ extension ChatViewController: MessagesDataSource {
 
 // メッセージの設定
 extension ChatViewController: MessagesDisplayDelegate {
+    
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ?
+            UIColor(red: 69/255, green: 193/255, blue: 89/255, alpha: 1) :
+            UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+    }
     
     // メッセージの枠にしっぽを付ける
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {

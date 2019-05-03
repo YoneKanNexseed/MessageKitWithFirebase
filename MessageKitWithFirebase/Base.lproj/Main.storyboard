@@ -43,7 +43,7 @@
         <!--Chat View Controller-->
         <scene sceneID="Ziz-1d-aP6">
             <objects>
-                <viewController id="iHW-0w-aiR" customClass="ChatViewController" customModule="MessageKitWithFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatVC" id="iHW-0w-aiR" customClass="ChatViewController" customModule="MessageKitWithFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nrT-aw-fXB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
