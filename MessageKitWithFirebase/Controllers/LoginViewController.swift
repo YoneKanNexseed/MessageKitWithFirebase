@@ -29,15 +29,25 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,accessToken: (authentication?.accessToken)!)
         
         // Firebaseにログインする。
-        Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) { (authDataResult, error) in
             
             if let err = error {
                 print(err)
             } else {
                 print("ログイン成功")
-                self.performSegue(withIdentifier: "toChatVC", sender: nil)
+                
+                let user = authDataResult?.user
+                let userService = UserService()
+                
+                userService.register(user: user!, didRegisterCompletion: self.moveToChatVC)
+                
             }
         }
     }
     
+    
+    /// チャット画面へ画面遷移する
+    func moveToChatVC() {
+        performSegue(withIdentifier: "toChatVC", sender: nil)
+    }
 }

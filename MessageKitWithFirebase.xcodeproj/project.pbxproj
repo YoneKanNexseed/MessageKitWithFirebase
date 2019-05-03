@@ -14,6 +14,10 @@
 		0C62374E22792AB700F52345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C62374D22792AB700F52345 /* GoogleService-Info.plist */; };
 		0C62375122792EBB00F52345 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62375022792EBB00F52345 /* LoginViewController.swift */; };
 		0C6237532279347900F52345 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6237522279347900F52345 /* ChatViewController.swift */; };
+		0C6237562279386F00F52345 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6237552279386F00F52345 /* Message.swift */; };
+		0CE91289227B513400D116EC /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE91288227B513400D116EC /* ChatUser.swift */; };
+		0CE9128C227B57B500D116EC /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE9128B227B57B500D116EC /* ChatService.swift */; };
+		0CE9128E227B585E00D116EC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE9128D227B585E00D116EC /* UserService.swift */; };
 		D8543ED29DE8BDCB987B4F5C /* Pods_MessageKitWithFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABAFD8965A99BE1977358D0 /* Pods_MessageKitWithFirebase.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		0C62374D22792AB700F52345 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0C62375022792EBB00F52345 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0C6237522279347900F52345 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		0C6237552279386F00F52345 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		0CE91288227B513400D116EC /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
+		0CE9128B227B57B500D116EC /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		0CE9128D227B585E00D116EC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		6ABAFD8965A99BE1977358D0 /* Pods_MessageKitWithFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessageKitWithFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E55CDB495AC01FACD1956FEC /* Pods-MessageKitWithFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageKitWithFirebase.release.xcconfig"; path = "Target Support Files/Pods-MessageKitWithFirebase/Pods-MessageKitWithFirebase.release.xcconfig"; sourceTree = "<group>"; };
 		FB6399DB3EB425056CF6F96B /* Pods-MessageKitWithFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageKitWithFirebase.debug.xcconfig"; path = "Target Support Files/Pods-MessageKitWithFirebase/Pods-MessageKitWithFirebase.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +73,8 @@
 		0C62373A227929D400F52345 /* MessageKitWithFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				0CE9128A227B579900D116EC /* Services */,
+				0C6237542279384900F52345 /* ValueObjects */,
 				0C62374F22792E4900F52345 /* Controllers */,
 				0C62373B227929D400F52345 /* AppDelegate.swift */,
 				0C62373F227929D400F52345 /* Main.storyboard */,
@@ -83,6 +93,24 @@
 				0C6237522279347900F52345 /* ChatViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0C6237542279384900F52345 /* ValueObjects */ = {
+			isa = PBXGroup;
+			children = (
+				0C6237552279386F00F52345 /* Message.swift */,
+				0CE91288227B513400D116EC /* ChatUser.swift */,
+			);
+			path = ValueObjects;
+			sourceTree = "<group>";
+		};
+		0CE9128A227B579900D116EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0CE9128B227B57B500D116EC /* ChatService.swift */,
+				0CE9128D227B585E00D116EC /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8E69908B5B3103E21DE1EDFB /* Pods */ = {
@@ -204,22 +232,36 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MessageKitWithFirebase/Pods-MessageKitWithFirebase-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,9 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE9128E227B585E00D116EC /* UserService.swift in Sources */,
 				0C62375122792EBB00F52345 /* LoginViewController.swift in Sources */,
+				0C6237562279386F00F52345 /* Message.swift in Sources */,
 				0C6237532279347900F52345 /* ChatViewController.swift in Sources */,
+				0CE91289227B513400D116EC /* ChatUser.swift in Sources */,
 				0C62373C227929D400F52345 /* AppDelegate.swift in Sources */,
+				0CE9128C227B57B500D116EC /* ChatService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,6 @@ target 'MessageKitWithFirebase' do
   pod 'MessageKit'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'Firebase/Firestore’
+  pod 'AlamofireImage'
 end
